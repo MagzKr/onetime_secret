@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "onetime_secret"
+description="Service for transferring encrypted secrets"
+authors = ["Your Name <you@example.com>"]
+version = "0.1.0-alpha"
+
+[tool.poetry.dependencies]
+fastapi = "^0.89.1"
+python = "^3.11"
+python-multipart = ">=0.0.5,<0.0.6"
+sqlalchemy = "^2.0.1"
+alembic = "^1.9.2"
+asyncpg = "^0.27.0"
+pydantic = {extras = ["dotenv", "email"], version = "^1.10.4"}
+greenlet = "^2.0.2"
+uvicorn = "^0.23.1"
+cryptography = "^41.0.2"
+uvloop = "^0.17.0"
+
+[tool.poetry.group.dev.dependencies]
+autoflake = "^2.0.1"
+black = "^23.1.0"
+coverage = "^7.1.0"
+flake8 = "^6.0.0"
+httpx = "^0.23.3"
+isort = "^5.12.0"
+pytest = "^7.2.1"
+pytest-asyncio = "^0.20.3"
+pre-commit = "^3.0.4"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+asyncio_mode = "auto"
+filterwarnings = []
+markers = ["pytest.mark.asyncio"]
+minversion = "6.0"
+testpaths = ["app/tests"]
+
+[tool.isort]
+profile = "black"
