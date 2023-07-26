@@ -9,8 +9,11 @@ poetry install
 ```
 Create .env file based on [.env.example](.env.example)
 ```shell
-docker-compose up -d
-alembic upgrade head
+#start databases and apply migrations
+sh run_databases.sh
+```
+```shell
+#run app
 uvicorn app.main:app --reload
 ```
 App will be launched on http://127.0.0.1:8000.
